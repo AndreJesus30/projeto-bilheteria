@@ -1,0 +1,20 @@
+FE;1000;StarWars IV Uma Nova Esperança;121;George Lucas;Ação-Aventura-Fantasia-Ficção;12
+U;andre@andre.com;Andre;123
+D;13/10/2023 21:30
+P;30.00
+FE;1001;O Senhor dos Anéis I;178;Peter Jackson;Aventura-Drama-Fantasia;12
+U;andre@andre.com;Andre;123
+D;18/10/2023 22:30
+P;30.00
+ME;2002;Elephant;81;Gus Van Sant;Drama-Suspense;16
+U;andre@andre.com;Andre;123
+D;18/10/2023 19:30
+P;20.00
+SH;3001;The Lunch Date;10;Adam Davidson;Comédia-Drama;0
+U;andre@andre.com;Andre;123
+D;22/10/2023 18:30
+P;15.00
+SH;3002;Piper;6;Alan Barillaro;Animação-Família;0
+U;andre@andre.com;Andre;123
+D;25/10/2023 20:30
+P;15.00

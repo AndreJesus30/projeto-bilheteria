@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 
@@ -52,11 +53,16 @@ public class UserController {
 
 
     @GetMapping("/users/list")
-    public String getList(Model model) {
+    public String getList(Model model, @SessionAttribute("currentUser") User currentUser) {
 
-        model.addAttribute("usersList", userService.getAllUsers());
+        if(currentUser.getEmail().equalsIgnoreCase("admin@admin.com")) {
+             model.addAttribute("usersList", userService.getAllUsers());
+            return "user/list";
+        } else {
+          model.addAttribute("onlyUser", userService.getUserByEmail(currentUser.getEmail()));
+            return "user/only_user";
+        }
 
-        return "user/list";
     }
 
     @GetMapping("/user/{id}/delete")

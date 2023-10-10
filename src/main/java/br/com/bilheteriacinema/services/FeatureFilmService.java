@@ -17,17 +17,14 @@ public class FeatureFilmService {
     FeatureFilmRepository featureFilmRepository;
 
     public Collection<FeatureFilm> getAllFeaturesFilm() {
-        System.out.println("Passou no getAllFeaturesFilm");
         return (Collection<FeatureFilm>) featureFilmRepository.findAll();
     }
 
     public void addFeatureFilm(FeatureFilm featureFilm) {
-        System.out.println("Passou no addFeatureFilm");
         featureFilmRepository.save(featureFilm);
     }
 
     public void deleteById(Integer id) {
-        System.out.println("Passou no deleteById" + id);
         featureFilmRepository.deleteById(id);
     }
 

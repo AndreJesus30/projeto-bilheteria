@@ -26,12 +26,10 @@ public class TicketService {
    }
 
     public void addTicket(Ticket ticket) {
-        System.out.println("Passou no addTicket");
         ticketRepository.save(ticket);
     }
 
     public void deleteById(Integer id) {
-        System.out.println("Passou no deleteById Ticket" + id);
         ticketRepository.deleteById(id);
     }
 

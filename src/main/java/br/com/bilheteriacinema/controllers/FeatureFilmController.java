@@ -31,7 +31,7 @@ public class FeatureFilmController {
     TicketService ticketService;
 
     @Autowired
-    FeatureFilmService featureFilmeService;
+    FeatureFilmService featureFilmService;
 
     List<Ticket> fakeScheduleFeatureFilm = new ArrayList<Ticket>();
 
@@ -43,7 +43,7 @@ public class FeatureFilmController {
     @PostMapping("/feature-film/add")
     public String addFeatureFilm(FeatureFilm featureFilm) {
 
-        featureFilmeService.addFeatureFilm(featureFilm);
+        featureFilmService.addFeatureFilm(featureFilm);
 
         return "redirect:/feature-film/list";
     }
@@ -51,7 +51,7 @@ public class FeatureFilmController {
     @GetMapping("/feature-film/list")
     public String getList(Model model) {
 
-        model.addAttribute("featureList", featureFilmeService.getAllFeaturesFilm());
+        model.addAttribute("featureList", featureFilmService.getAllFeaturesFilm());
 
         return "feature_film/list";
     }
@@ -59,7 +59,7 @@ public class FeatureFilmController {
     @GetMapping("/feature-film/{id}/delete")
     public String deleteById(@PathVariable Integer id) {
 
-        featureFilmeService.deleteById(id);
+        featureFilmService.deleteById(id);
 
         return  "redirect:/feature-film/list";
     }
@@ -67,7 +67,7 @@ public class FeatureFilmController {
     @GetMapping("/feature-film/{id}/schedule")
     public String scheduleFeatureFilm(Model model, @PathVariable Integer id) throws ParseException {
 
-       fakeScheduleFeatureFilm = featureFilmeService.generateFakeSchedule(id);
+       fakeScheduleFeatureFilm = featureFilmService.generateFakeSchedule(id);
 
         model.addAttribute("fakeScheduleFeatureFilm", fakeScheduleFeatureFilm);
 

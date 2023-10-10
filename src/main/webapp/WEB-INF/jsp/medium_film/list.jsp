@@ -44,6 +44,7 @@
                   <td>${f.director}</td>
                   <td>${f.gendersList}</td>
                   <td>${f.ageRating}</td>
+                  <td><a href="/medium-film/${f.id}/schedule">programação</a></td>
                   <c:if test="${currentUser.name eq 'Administrador'}">
                     <td><a href="/medium-film/${f.id}/delete">excluir</a></td>
                   </c:if>

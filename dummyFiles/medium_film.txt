@@ -1,3 +1,3 @@
-2000;La Jetée;28;Chris Marker;Ficção;12
-2001;Buried;95;Rodrigo Cortés;Thriller-Suspense;14
+2000;La Jetée;28;Chris Marker;Ficcao;12
+2001;Buried;95;Rodrigo Cortes;Thriller-Suspense;14
 2002;Elephant;81;Gus Van Sant;Drama-Suspense;16

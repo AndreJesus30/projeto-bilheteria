@@ -13,17 +13,18 @@ public class UserService {
     UserRepository userRepository;
 
     public Collection<User> getAllUsers() {
-        System.out.println("Passou no getAllFeaturesFilm");
         return (Collection<User>) userRepository.findAll();
     }
 
+    public User getUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
+    }
+
     public void addUser(User user) {
-        System.out.println("Passou no addFeatureFilm");
         userRepository.save(user);
     }
 
     public void deleteUserById(Integer id) {
-        System.out.println("Passou no deleteById User" + id);
         userRepository.deleteById(id);
     }
 

@@ -26,15 +26,13 @@
               </tr>
             </thead>
             <tbody>
-              <c:forEach var="u" items="${usersList}">
-                <tr>
-                  <td>${u.id}</td>
-                  <td>${u.name}</td>
-                  <td>${u.email}</td>
-                  <td>${u.password}</td>
-                  <td><a href="/user/${u.id}/delete">excluir</a></td>
-                </tr>
-              </c:forEach>
+              <tr>
+                <td>${onlyUser.id}</td>
+                <td>${onlyUser.name}</td>
+                <td>${onlyUser.email}</td>
+                <td>${onlyUser.password}</td>
+                <td><a href="/user/${onlyUser.id}/delete">excluir</a></td>
+              </tr>
             </tbody>
           </table>
         </div>

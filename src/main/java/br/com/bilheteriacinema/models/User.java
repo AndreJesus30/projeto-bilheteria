@@ -12,8 +12,7 @@ public class User {
     private String email;
     private String password;
 
-    @OneToMany
-    @JoinColumn(name = "user_id")
+    @OneToMany(mappedBy = "user")
     private List<Ticket> tickets;
 
     public User() {}

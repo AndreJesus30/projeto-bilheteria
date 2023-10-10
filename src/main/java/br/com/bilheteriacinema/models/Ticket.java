@@ -19,16 +19,16 @@ public class Ticket {
     @JoinColumn(name = "user_id")
     private User user;
 
-    private Date sessionData;
+    private Date sessionDate;
 
     private Double price;
 
     public Ticket() {}
 
-    public Ticket(Film film, User user, Date sessionData, Double price) {
+    public Ticket(Film film, User user, Date sessionDate, Double price) {
         this.film = film;
         this.user = user;
-        this.sessionData = sessionData;
+        this.sessionDate = sessionDate;
         this.price = price;
     }
 
@@ -48,12 +48,12 @@ public class Ticket {
         this.user = user;
     }
 
-    public Date getSessionData() {
-        return sessionData;
+    public Date getsessionDate() {
+        return sessionDate;
     }
 
-    public void setSessionData(Date sessionData) {
-        this.sessionData = sessionData;
+    public void setsessionDate(Date sessionDate) {
+        this.sessionDate = sessionDate;
     }
 
     public Double getPrice() {
@@ -78,7 +78,7 @@ public class Ticket {
                 "id= " + id +
                 ", film= " + film +
                 ", user= " + user +
-                ", sessionData= " + sessionData +
+                ", sessionDate= " + sessionDate +
                 ", price= " + price +
                 '}';
     }

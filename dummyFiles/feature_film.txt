@@ -1,5 +1,5 @@
-1000;StarWars IV Uma Nova Esperança;121;George Lucas;Ação-Aventura-Fantasia-Ficção;12
-1001;O Senhor dos Anéis I;178;Peter Jackson;Aventura-Drama-Fantasia;12
-1002;A espera de um milagre;189;Frank Darabont;Drama-Fantasia-Mistério;14
+1000;StarWars IV Uma Nova Esperanca;121;George Lucas;Acao-Aventura-Fantasia-Ficcao;12
+1001;O Senhor dos Aneis I;178;Peter Jackson;Aventura-Drama-Fantasia;12
+1002;A espera de um milagre;189;Frank Darabont;Drama-Fantasia-Misterio;14
 1003;Um sonho de liberdade;142;Frank Darabont;Drama-Policial;16
-1004;Deadpool;121;George Lucas;Ação-Aventura-Fantasia-Ficção;12
+1004;Deadpool;121;Tim Miller;Ação-Aventura-Fantasia-Ficcao;12

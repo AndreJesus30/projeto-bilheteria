@@ -4,7 +4,6 @@ import br.com.bilheteriacinema.models.User;
 import br.com.bilheteriacinema.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 
 @Service
@@ -26,6 +25,21 @@ public class UserService {
     public void deleteUserById(Integer id) {
         System.out.println("Passou no deleteById User" + id);
         userRepository.deleteById(id);
+    }
+
+    public User userIsValid(String email, String password) {
+
+        User currentUser = userRepository.findUserByEmail(email);
+
+        if(currentUser != null) {
+
+            if(password.equalsIgnoreCase(currentUser.getPassword())) {
+                return currentUser;
+            }
+        }
+
+      return null;
+
     }
 
 }

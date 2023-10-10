@@ -9,9 +9,6 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -58,7 +55,7 @@ public class TicketLoader implements ApplicationRunner {
         ticketService.addTicket(ticket2);
 
         for (Ticket t : ticketService.getAllTickets()) {
-            System.out.println("Ticket Inclusão realizada: " + t.getUser() + "sessão: " + t.getSessionData() + "preço: " + t.getPrice());
+            System.out.println("Ticket Inclusão realizada: " + t.getUser() + "sessão: " + t.getsessionDate() + "preço: " + t.getPrice());
         }
     }
 

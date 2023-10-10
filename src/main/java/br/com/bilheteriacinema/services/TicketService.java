@@ -5,6 +5,7 @@ import br.com.bilheteriacinema.repositories.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class TicketService {
@@ -17,15 +18,12 @@ public class TicketService {
         return (Collection<Ticket>) ticketRepository.findAll();
     }
 
-//    public List<Ticket> getTicketsById(Integer id) {
-//        System.out.println("Chamou o getTicketById");
-//
-//        //No parâmetro desse método pode ser User user
-//        // e ai passar para o repository o user.id
-//
-//        return ticketRepository.getTicketsById(id);
-//
-//    }
+   public List<Ticket> getTicketsById(Integer id) {
+       System.out.println("Chamou o getTicketById");
+
+       return  ticketRepository.findTicketsByUserId(id);
+
+   }
 
     public void addTicket(Ticket ticket) {
         System.out.println("Passou no addTicket");

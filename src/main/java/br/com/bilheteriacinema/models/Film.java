@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "TFilm")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Film {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

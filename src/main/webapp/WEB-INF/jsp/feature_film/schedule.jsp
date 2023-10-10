@@ -4,7 +4,7 @@
     <html>
 
     <head>
-      <meta charset="utf-8">
+      <meta charset="UTF-8">
       <title>Bilheteria</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,26 +12,24 @@
 
     <body>
       <c:import url="/WEB-INF/jsp/menu.jsp" />
-      <div class="container mt-3">
-        <h3>Histórico de Ingressos Comprados</h3>
-
+      <div class="container">
+        <h1>${fakeScheduleFeatureFilm[0].film.title}</h1>
+        <P>Diretor: "${fakeScheduleFeatureFilm[0].film.director}"</P>
+        <P>Gênero: "${fakeScheduleFeatureFilm[0].film.gendersList}"</P>
+        <P>Classificação: "${fakeScheduleFeatureFilm[0].film.ageRating}" anos</P>
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Senha</th>
+              <th>Sessão</th>
+              <th>Preço</th>
             </tr>
           </thead>
           <tbody>
-            <c:forEach var="u" items="${usersList}">
+            <c:forEach var="fs" items="${fakeScheduleFeatureFilm}">
               <tr>
-                <td>${u.id}</td>
-                <td>${u.name}</td>
-                <td>${u.email}</td>
-                <td>${u.password}</td>
-                <td><a href="/user/${s.id}/delete">excluir</a></td>
+                <td>${fs.sessionDate}</td>
+                <td>${fs.price}</td>
+                <td><a href="/feature-film/${fs.id}/buy">comprar</a></td>
               </tr>
             </c:forEach>
           </tbody>

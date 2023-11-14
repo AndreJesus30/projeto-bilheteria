@@ -20,8 +20,28 @@ public class FeatureFilmService {
         return (Collection<FeatureFilm>) featureFilmRepository.findAll();
     }
 
+    public Optional<FeatureFilm> getByIdFeatureFilm(Integer id) {
+        return featureFilmRepository.findById(id);
+    }
+
     public void addFeatureFilm(FeatureFilm featureFilm) {
         featureFilmRepository.save(featureFilm);
+    }
+
+    public void editFeatureFilm(FeatureFilm featureFilmEdited) {
+          System.out.println("Chamou o edit feature service");
+
+        FeatureFilm featureFilm =  featureFilmRepository.findById(featureFilmEdited.getId()).orElse(null);
+
+        if(featureFilm != null) {
+            featureFilm.setCode(featureFilmEdited.getCode());
+            featureFilm.setTitle(featureFilmEdited.getTitle());
+            featureFilm.setAgeRating(featureFilmEdited.getAgeRating());
+            featureFilm.setDirector(featureFilmEdited.getDirector());
+            featureFilm.setDuration(featureFilmEdited.getDuration());
+            featureFilm.setGendersList(featureFilmEdited.getGendersList());
+            featureFilmRepository.save(featureFilm);
+        }
     }
 
     public void deleteById(Integer id) {

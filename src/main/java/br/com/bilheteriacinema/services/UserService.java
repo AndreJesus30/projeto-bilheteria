@@ -2,9 +2,12 @@ package br.com.bilheteriacinema.services;
 
 import br.com.bilheteriacinema.models.User;
 import br.com.bilheteriacinema.repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
+import java.util.Optional;
+
 
 @Service
 public class UserService {
@@ -20,8 +23,26 @@ public class UserService {
         return userRepository.findUserByEmail(email);
     }
 
+    public Optional<User> getUserById(Integer id) {
+        return userRepository.findById(id);
+    }
+
     public void addUser(User user) {
         userRepository.save(user);
+    }
+
+    public void editUser(User editedUser) {
+        System.out.println("Chamou o edit user service");
+
+        User user =  userRepository.findById(editedUser.getId()).orElse(null);
+
+        if(editedUser != null) {
+            user.setEmail(editedUser.getEmail());
+            user.setName(editedUser.getName());
+            user.setPassword(editedUser.getPassword());
+            userRepository.save(editedUser);
+        }
+
     }
 
     public void deleteUserById(Integer id) {

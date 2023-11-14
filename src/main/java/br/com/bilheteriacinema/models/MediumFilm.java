@@ -34,7 +34,7 @@ public class MediumFilm extends Film {
         return gendersList;
     }
 
-    public void getGendersList(List<String> gender) {
+    public void setGendersList(List<String> gender) {
         this.gendersList = gender;
     }
 

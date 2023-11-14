@@ -92,5 +92,25 @@ public class FeatureFilmController {
     }
 
 
+    @GetMapping("/feature-film/{id}/edit")
+        public String editFeatureFilm(Model model, @PathVariable Integer id) {
 
+        FeatureFilm featureFilm = featureFilmService.getByIdFeatureFilm(id).orElse(null);
+
+        if(featureFilm != null) {
+            model.addAttribute("featureFilm", featureFilm);
+            return "feature_film/edit_feature_film";
+
+        }
+
+        return "redirect:/feature-film/list";
+    }
+
+    @PostMapping("/feature-film/edited_feature")
+        public String editedFeatureFilm(FeatureFilm featureFilm) {
+
+        featureFilmService.editFeatureFilm(featureFilm);
+
+        return "redirect:/feature-film/list";
+    }
 }

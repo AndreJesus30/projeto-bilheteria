@@ -1,4 +1,5 @@
 package br.com.bilheteriacinema.controllers;
+import br.com.bilheteriacinema.models.FeatureFilm;
 import br.com.bilheteriacinema.models.MediumFilm;
 import br.com.bilheteriacinema.models.Ticket;
 import br.com.bilheteriacinema.models.User;
@@ -86,6 +87,28 @@ public class MediumFilmController {
         ticketService.addTicket(newTicket);
         
         return "redirect:/tickets/list";
+    }
+
+     @GetMapping("/medium-film/{id}/edit")
+        public String editMediumFilm(Model model, @PathVariable Integer id) {
+
+        MediumFilm mediumFilm = mediumFilmService.getByIdMediumFilm(id).orElse(null);
+
+        if(mediumFilm != null) {
+            model.addAttribute("mediumFilm", mediumFilm);
+            return "medium_film/edit_medium_film";
+
+        }
+
+        return "redirect:/medium-film/list";
+    }
+
+    @PostMapping("/medium-film/edited_medium")
+        public String editedMediumFilm(MediumFilm mediumFilm) {
+
+        mediumFilmService.editMediumFilm(mediumFilm);
+
+        return "redirect:/medium-film/list";
     }
 
 }

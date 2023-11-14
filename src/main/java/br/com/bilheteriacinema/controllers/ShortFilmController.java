@@ -3,7 +3,6 @@ package br.com.bilheteriacinema.controllers;
 import br.com.bilheteriacinema.models.ShortFilm;
 import br.com.bilheteriacinema.models.Ticket;
 import br.com.bilheteriacinema.models.User;
-import br.com.bilheteriacinema.models.ShortFilm;
 import br.com.bilheteriacinema.services.ShortFilmService;
 import br.com.bilheteriacinema.services.TicketService;
 
@@ -88,6 +87,28 @@ public class ShortFilmController {
         ticketService.addTicket(newTicket);
         
         return "redirect:/tickets/list";
+    }
+
+     @GetMapping("/short-film/{id}/edit")
+        public String editShortFilm(Model model, @PathVariable Integer id) {
+
+        ShortFilm shortFilm = shortFilmService.getByIdShortFilm(id).orElse(null);
+
+        if(shortFilm != null) {
+            model.addAttribute("shortFilm", shortFilm);
+            return "short_film/edit_short_film";
+
+        }
+
+        return "redirect:/short-film/list";
+    }
+
+    @PostMapping("/short-film/edited_short")
+        public String editedShortFilm(ShortFilm shortFilm) {
+
+        shortFilmService.editShortFilm(shortFilm);
+
+        return "redirect:/short-film/list";
     }
 
 }

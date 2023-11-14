@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -71,6 +72,38 @@ public class UserController {
         userService.deleteUserById(id);
 
         return  "redirect:/users/list";
+    }
+
+    @GetMapping("/user/{id}/edit")
+    public String goEditById(Model model, @PathVariable Integer id) {
+        System.out.println("Chamou o edit user controller");
+
+        User user = userService.getUserById(id).orElse(null);
+
+        if(user != null) {
+            model.addAttribute("userEdited", user);
+            model.addAttribute("userId", id);
+            return "user/edit_user";
+
+        }
+
+        return  "redirect:/users/list";
+
+    }
+
+    @PostMapping("/user/edited_user")
+    public String editUser(User userEdited) {
+         System.out.println("Chamou o edited user controller");
+
+        // Integer parseId = Integer.parseInt(id);
+
+        System.out.println(userEdited.getName());
+        System.out.println(userEdited.getEmail());
+
+        userService.editUser(userEdited);
+
+        return  "redirect:/users/list";
+
     }
 
 }

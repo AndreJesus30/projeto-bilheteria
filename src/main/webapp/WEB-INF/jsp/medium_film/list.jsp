@@ -48,6 +48,9 @@
                   <c:if test="${currentUser.name eq 'Administrador'}">
                     <td><a href="/medium-film/${f.id}/delete">excluir</a></td>
                   </c:if>
+                  <c:if test="${currentUser.name eq 'Administrador'}">
+                    <td><a href="/medium-film/${f.id}/edit">editar</a></td>
+                  </c:if>
                 </tr>
               </c:forEach>
             </tbody>

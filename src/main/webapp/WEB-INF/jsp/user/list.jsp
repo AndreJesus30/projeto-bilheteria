@@ -14,7 +14,16 @@
       <body>
         <c:import url="/WEB-INF/jsp/menu.jsp" />
         <div class="container mt-3">
-          <h3>Informações de Usuário</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Informações de Usuário</h3>
+            </div>
+            <div class="col-md-8">
+              <c:if test="${currentUser.name eq 'Administrador'}">
+                <h4 class="mt-3 mb-3"><a href="/user/register" class="btn btn-primary">Cadastrar Novo</a></h4>
+              </c:if>
+            </div>
+          </div>
 
           <table class="table table-striped">
             <thead>
@@ -33,6 +42,7 @@
                   <td>${u.email}</td>
                   <td>${u.password}</td>
                   <td><a href="/user/${u.id}/delete">excluir</a></td>
+                  <td><a href="/user/${u.id}/edit">editar</a></td>
                 </tr>
               </c:forEach>
             </tbody>

@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ShortFilmService {
@@ -24,6 +25,10 @@ public class ShortFilmService {
         return (Collection<ShortFilm>) shortFilmRepository.findAll();
     }
 
+    public Optional<ShortFilm> getByIdShortFilm(Integer id) {
+        return shortFilmRepository.findById(id);
+    }
+
     public void addShortFilm(ShortFilm shortFilm) {
         shortFilmRepository.save(shortFilm);
     }
@@ -32,7 +37,7 @@ public class ShortFilmService {
         shortFilmRepository.deleteById(id);
     }
 
-     public List<Ticket> generateFakeSchedule(Integer id) throws ParseException {
+    public List<Ticket> generateFakeSchedule(Integer id) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         ShortFilm  shortFilm = shortFilmRepository.findById(id).get();
 
@@ -59,6 +64,22 @@ public class ShortFilmService {
 
         return scheduleShortFilm;
 
+    }
+
+    public void editShortFilm(ShortFilm shortFilmEdited) {
+        System.out.println("Chamou o edit short service");
+
+        ShortFilm shortFilm =  shortFilmRepository.findById(shortFilmEdited.getId()).orElse(null);
+
+        if(shortFilm != null) {
+            shortFilm.setCode(shortFilmEdited.getCode());
+            shortFilm.setTitle(shortFilmEdited.getTitle());
+            shortFilm.setAgeRating(shortFilmEdited.getAgeRating());
+            shortFilm.setDirector(shortFilmEdited.getDirector());
+            shortFilm.setDuration(shortFilmEdited.getDuration());
+            shortFilm.setGendersList(shortFilmEdited.getGendersList());
+            shortFilmRepository.save(shortFilm);
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 package br.com.bilheteriacinema.services;
 
+import br.com.bilheteriacinema.models.FeatureFilm;
 import br.com.bilheteriacinema.models.MediumFilm;
 import br.com.bilheteriacinema.models.Ticket;
 import br.com.bilheteriacinema.repositories.MediumFilmRepository;
@@ -13,6 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MediumFilmService {
@@ -22,6 +24,10 @@ public class MediumFilmService {
 
     public Collection<MediumFilm> getAllMediumFilm() {
         return (Collection<MediumFilm>) mediumFilmRepository.findAll();
+    }
+
+    public Optional<MediumFilm> getByIdMediumFilm(Integer id) {
+        return mediumFilmRepository.findById(id);
     }
 
     public void addMediumFilm(MediumFilm mediumFilm) {
@@ -60,5 +66,21 @@ public class MediumFilmService {
         return scheduleMediumFilm;
 
     }
+
+    public void editMediumFilm(MediumFilm mediumFilmEdited) {
+        System.out.println("Chamou o edit medium service");
+
+      MediumFilm mediumFilm =  mediumFilmRepository.findById(mediumFilmEdited.getId()).orElse(null);
+
+      if(mediumFilm != null) {
+          mediumFilm.setCode(mediumFilmEdited.getCode());
+          mediumFilm.setTitle(mediumFilmEdited.getTitle());
+          mediumFilm.setAgeRating(mediumFilmEdited.getAgeRating());
+          mediumFilm.setDirector(mediumFilmEdited.getDirector());
+          mediumFilm.setDuration(mediumFilmEdited.getDuration());
+          mediumFilm.setGendersList(mediumFilmEdited.getGendersList());
+          mediumFilmRepository.save(mediumFilm);
+      }
+  }
 
 }

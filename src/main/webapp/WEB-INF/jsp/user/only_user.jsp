@@ -32,6 +32,7 @@
                 <td>${onlyUser.email}</td>
                 <td>${onlyUser.password}</td>
                 <td><a href="/user/${onlyUser.id}/delete">excluir</a></td>
+                <td><a href="/user/${onlyUser.id}/edit">editar</a></td>
               </tr>
             </tbody>
           </table>
